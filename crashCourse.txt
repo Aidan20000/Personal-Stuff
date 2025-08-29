@@ -1,0 +1,87 @@
+Transistor - two conductors with a semi conductor in them that can be turned on and off from a conductor to an insulator so when it is a conductor current flows and value is "True" and when it is an insulator value is "False"
+
+Not - Logic gate that switches the values for true and false. False becomes true true becomes false.
+
+Or - if either input is true, output is true. If both are false output is false.
+
+And - if both inputs are true output is True. If either input is false output is false.
+
+Xor - (Exclusive or) Output is true if one output is false and one is true. Otherwise output is false.
+
+Byte - A set of 8 bits
+
+32 Bit - Used for situations in which 8 bits isnt enough
+
+64 Bit - Used for situations when 32 bits isnt enough
+
+Negatives in binary - determined by the first bit in a numerical sequence of bits (float, int, etc.)
+
+IEEE Standard (Significand/Exponent) - Standard for storing floating point numbers in binary using scientific notation. 629.5 can be .6295 times 10 to the 3rd. Some bits are used for significand, some for exponent, and 1 for sign
+
+Ascii - The first widely used code to represent characters from bits. Only supported english
+
+Interoperability - The ability between two computers to exchange information using a widely recognized standarc
+
+Unicode - A character standard like ascii that was made to support every language on planet earth
+
+Arithmetic unit - The part of an ALU that handles mathmatical operations using adders and subtractors.
+
+Logic Unit - The part of an ALU that handles logic statements like and, or and not along with simple arithmatic checkers like if a number is negative.
+
+ALU - The mathmatical brain of a computer that handles all arithmetic
+
+Half Adder - Can add two binary digits by using an xor gate paired with an and gate (for when both inputs are 1) to output a sum and a carry. 2 inputs 2 outputs
+
+Full Adder - adds 3 binary digits and can be used repeatedly to fully add binary. 3 inputs 2 outputs
+
+Overflow -when the data is too large for the binary digits attached to it. Overflow errors can cause strange behavior and exiting in code
+
+Carry-Look-Ahead Adder - The type of addition modern computers use as opposed to half and full adders. More efficent.
+
+Operation Code - A code in the ALU that specifies the type of operation that is to be done to a number. 1000 for addition, 1100 for subtraction, etc.
+
+ALU Flags - One bit that is used to describe a number contained in the ALU. Flags for if a number is zero, and if its negative are common
+
+Half Subtractor - Subtracts binary digits using logic statements. 2 inputs 2 outputs.
+
+Full Subtractor - Subtracts binary digits using logic statements and can be used repeatedly after one half subtractor to subtract binary numbers. 3 Inputs 2 outputs.
+
+RAM - Random Access memory made by connecting 256 bit memories (a matrix of latches) with 8 biut returns from 8 different matricies. Stores binary as long as power stays on
+
+Persistent Memory - A type of memory that can still remember while power is off, unlike RAM
+
+OR circuit - A circuit using the OR gate that stores 1's
+
+AND circuit - A circuit using the AND gate that stores 0's
+
+Latch - A circuit that loops onto itself and keeps the same value it had before 
+
+Writing - Storing something in memory
+
+Reading - Outputting something from memory
+
+Data Input - The data that is interacting wih the memory
+
+Write Enable - A wire in a latch that enables whatever the input data is to be written onto the latch
+
+Gated Latch - The main latch used in ram that has a write enable to write data into the latch and store it
+
+Register - A group of latches used to store binary. 8 latches for an 8 bit number, 16 for a 16 bit number, etc.
+
+Register Width - A count of how many latches work together in a register
+
+16*16 Latch matrix - A 16 by 16 grid of latches distinguished by wire row and column. Main part to a 256 bit storage cell
+
+Read Enable - A wire in the 16 by 16 Matrix that enables the matrix to output a stored value
+
+Memory Address - An 8 bit code that specifies wire row and column of a desired latch. first 4 digits specify row last 4 specify column
+
+Row + Column Select Test -The and gate that is used in a 16 by 16 latch matrix that only activates the latch if both the row and the column correspond
+
+Multiplexer - A component of RAM that borders the matrix and activates the desired row and column using wires that act as a memory adress
+
+256 Bit Memory - A component that is made when combining the 16 by 16 latch matrix and 2 multiplexers. Stores 256 bits of info
+
+CPU -
+
+Microarchitechture -
