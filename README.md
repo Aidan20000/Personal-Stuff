@@ -1,2 +1,1 @@
-# Personal-Stuff
-Personal projects that aren't resume worthy
+This is for fun fr fr
