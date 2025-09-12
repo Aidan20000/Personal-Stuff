@@ -50,7 +50,20 @@ int halfSubtract(int num1, int num2){
     if(num1 == 1 && num2 == 1){
         borrow = 1;
     }
-    return 0;
+    return diff, borrow;
+}
+
+int fullSubtract(int num1, int num2, int borrow){
+    //This does num1 - (num2 + borrow)
+    int finalDiff, secondBorrow, finalBorrow;
+    int firstDiff, firstBorrow = halfSubtract(num1, borrow);
+    finalDiff, secondBorrow = halfSubtract(firstDiff, firstBorrow);
+
+    if(firstBorrow == 1 || secondBorrow == 1){
+        finalBorrow = 1;
+    }
+
+    return finalDiff, finalBorrow;
 }
 
 int main() {
