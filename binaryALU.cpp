@@ -29,6 +29,30 @@ int fullAdd(int num1, int num2, int carry){
     return newSum, newCarry;
 }
 
+int halfSubtract(int num1, int num2){
+    //This does num1 - num2
+    int diff = 0, borrow = 0;
+    if(num1 == 1 || num2 == 1){
+        diff = 1;
+    }
+    if(num1 == 1 && num2 == 1){
+        diff = 0;
+    }
+
+    //A not gate for num1
+    if(num1 == 1){
+        num1 = 0;
+    }else {
+        num1 = 1;
+    }
+
+    //Sets borrow to 1 if youre subtracting 1 from 0
+    if(num1 == 1 && num2 == 1){
+        borrow = 1;
+    }
+    return 0;
+}
+
 int main() {
     return 0;
 }
