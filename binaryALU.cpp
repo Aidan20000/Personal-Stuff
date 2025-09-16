@@ -1,7 +1,9 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 // Half and full adder function
-int halfAdd(int num1, int num2){
+std::pair<int, int> halfAdd(int num1, int num2){
     //Initializes sum and carry variables
     int sum = 0, carry = 0;
 
@@ -15,21 +17,24 @@ int halfAdd(int num1, int num2){
         carry = 1;
     }
 
-    return sum, carry;
+    return {sum, carry};
 }
 
-int fullAdd(int num1, int num2, int carry){
+std::pair<int, int> fullAdd(int num1, int num2, int carry){
+    //std::cout << carry << std::endl;
     int newCarry = 0;
-    int insideSum, insideCarry = halfAdd(num1, num2);
-    int newSum, secondInsideCarry = halfAdd(insideSum, carry);
+    int insideSum, insideCarry;
+    std::tie(insideSum, insideCarry) = halfAdd(num1, num2);
+    int secondInsideCarry;
+    std::tie(insideSum, secondInsideCarry) = halfAdd(insideSum, carry);
 
     if(insideCarry == 1 || secondInsideCarry == 1){
         newCarry = 1;
     }
-    return newSum, newCarry;
+    return {insideSum, newCarry};
 }
-
-int halfSubtract(int num1, int num2){
+////Half Subtractor and full subtractor function
+std::pair<int, int> halfSubtract(int num1, int num2){
     //This does num1 - num2
     int diff = 0, borrow = 0;
     if(num1 == 1 || num2 == 1){
@@ -50,22 +55,60 @@ int halfSubtract(int num1, int num2){
     if(num1 == 1 && num2 == 1){
         borrow = 1;
     }
-    return diff, borrow;
+    return {diff, borrow};
 }
 
-int fullSubtract(int num1, int num2, int borrow){
+std::pair<int, int> fullSubtract(int num1, int num2, int borrow){
     //This does num1 - (num2 + borrow)
     int finalDiff, secondBorrow, finalBorrow;
-    int firstDiff, firstBorrow = halfSubtract(num1, borrow);
-    finalDiff, secondBorrow = halfSubtract(firstDiff, firstBorrow);
+    int firstDiff, firstBorrow;
+    std::tie(firstDiff, firstBorrow) = halfSubtract(num1, borrow);
+    std::tie(finalDiff, secondBorrow) = halfSubtract(num1, borrow);
 
     if(firstBorrow == 1 || secondBorrow == 1){
         finalBorrow = 1;
     }
 
-    return finalDiff, finalBorrow;
+    return {finalDiff, finalBorrow};
+}
+
+//Adding and subtracting functions using adders and subtractors
+std::string addBinary(std::string num1, std::string num2){
+    //If both numbers are the same amount of bits then this function adds them
+    //We set the current index to the last bit in the input sting and add the two numbers at that index
+    //This is line addition
+    //We use the half adder at first and then full adders and incriment the selected index every time we add 2 digits
+    if(num1.size() == num2.size()){
+        int newSum, newCarry;
+        std::string finalAnswer = "";
+        int currIndex = num1.size();
+
+        // Subtracting by '0' converts the character of num[index] to an int that half and full adders use
+        std::tie(newSum, newCarry) = halfAdd((num1[currIndex]-'0'), (num2[currIndex]-'0'));
+        std::cout << newCarry << std::endl;
+        currIndex--;
+        finalAnswer += char(newSum);
+
+        while(currIndex >= 0){
+            std::tie(newSum, newCarry) = fullAdd((num1[currIndex] - '0'), (num2[currIndex] - '0'), char(newCarry));
+            std::cout << newCarry << std::endl;
+            finalAnswer += (newSum + '0');
+            std::cout << finalAnswer << std::endl;
+            currIndex--;
+        }
+        
+        if(newCarry == 1){
+            finalAnswer += '1';
+        }
+
+        std::reverse(finalAnswer.begin(), finalAnswer.end());
+
+        return finalAnswer;
+    }
+    return "";
 }
 
 int main() {
+    std::cout << addBinary("10111011", "00110011") << std::endl;
     return 0;
 }

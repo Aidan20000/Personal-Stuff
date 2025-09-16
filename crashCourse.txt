@@ -85,3 +85,5 @@ Multiplexer - A component of RAM that borders the matrix and activates the desir
 CPU -
 
 Microarchitechture -
+
+Instructions -
