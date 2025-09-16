@@ -109,6 +109,6 @@ std::string addBinary(std::string num1, std::string num2){
 }
 
 int main() {
-    std::cout << addBinary("10111011", "00110011") << std::endl;
+    std::cout << addBinary("1", "1") << std::endl;
     return 0;
 }
