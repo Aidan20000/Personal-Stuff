@@ -21,7 +21,6 @@ std::pair<int, int> halfAdd(int num1, int num2){
 }
 
 std::pair<int, int> fullAdd(int num1, int num2, int carry){
-    //std::cout << carry << std::endl;
     int newCarry = 0;
     int insideSum, insideCarry;
     std::tie(insideSum, insideCarry) = halfAdd(num1, num2);
@@ -85,15 +84,12 @@ std::string addBinary(std::string num1, std::string num2){
 
         // Subtracting by '0' converts the character of num[index] to an int that half and full adders use
         std::tie(newSum, newCarry) = halfAdd((num1[currIndex]-'0'), (num2[currIndex]-'0'));
-        std::cout << newCarry << std::endl;
         currIndex--;
         finalAnswer += char(newSum);
 
         while(currIndex >= 0){
             std::tie(newSum, newCarry) = fullAdd((num1[currIndex] - '0'), (num2[currIndex] - '0'), char(newCarry));
-            std::cout << newCarry << std::endl;
             finalAnswer += (newSum + '0');
-            std::cout << finalAnswer << std::endl;
             currIndex--;
         }
         
@@ -109,6 +105,6 @@ std::string addBinary(std::string num1, std::string num2){
 }
 
 int main() {
-    std::cout << addBinary("1", "1") << std::endl;
+    std::cout << addBinary("", "") << std::endl;
     return 0;
 }
