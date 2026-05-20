@@ -21,4 +21,6 @@ if newNums[0] % x == 0 and newNums[1] % x == 0:
 newNums[0] = newNums[0] / saved
 newNums[1] = newNums[1] / saved
 
-print(f"{str(int(newNums[0]))}/{str(int(newNums[1]))}")
+
+for num in range(1, 11):
+    print(num)
