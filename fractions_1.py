@@ -6,17 +6,17 @@ for num in frac:
 
 saved = 1
 lowestNum = min(newNums)
-x = int(lowestNum / 2)
+currNum = int(lowestNum / 2)
 
-while x > 1:
-    if newNums[0] % x == 0 and newNums[1] % x == 0:
-        saved = x
+while currNum > 1:
+    if newNums[0] % currNum == 0 and newNums[1] % currNum == 0:
+        saved = currNum
         break # Common Multiple Found
-    x -= 1
+    currNum -= 1
 
-x = lowestNum
-if newNums[0] % x == 0 and newNums[1] % x == 0:
-    saved = x
+currNum = lowestNum
+if newNums[0] % currNum == 0 and newNums[1] % currNum == 0:
+    saved = currNum
 
 newNums[0] = newNums[0] / saved
 newNums[1] = newNums[1] / saved
